@@ -190,32 +190,45 @@ footer p{margin:0}
       <li><h3>Lift off</h3><p>Water goes down fast, and the rocket goes up. Every action has an equal and opposite reaction.</p></li>
     </ol>
     <figure class="diagram">
-      <svg viewBox="0 0 600 350" role="img" aria-labelledby="dt">
-        <title id="dt">Diagram of the rocket: three air bottles joined by tubing at the top to a water-filled main bottle, with water leaving the nozzle downward and the rocket moving up</title>
-        <defs><clipPath id="mb"><rect x="250" y="112" width="100" height="150" rx="34"/></clipPath>
+      <svg viewBox="0 0 600 470" role="img" aria-labelledby="dt">
+        <title id="dt">Diagram of the six-bottle rocket: two 1 litre air bottles stacked on a water-filled 2 litre main bottle, three 1 litre air bottles around the main bottle joined to the stack by bent tubes and held by a wrap band, with water leaving the nozzle downward and the rocket moving up</title>
+        <defs><clipPath id="mb"><rect x="245" y="196" width="110" height="140" rx="36"/></clipPath>
         <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
         <g fill="none" stroke-width="2">
-          <rect x="262" y="8" width="76" height="92" rx="30" fill="var(--accent)" fill-opacity=".25" stroke="var(--accent)"/>
-          <rect x="288" y="100" width="24" height="12" fill="var(--accent)" fill-opacity=".4" stroke="var(--accent)"/>
-          <rect x="250" y="112" width="100" height="150" rx="34" stroke="var(--text)"/>
-          <rect x="250" y="190" width="100" height="72" fill="var(--water)" fill-opacity=".35" clip-path="url(#mb)" stroke="none"/>
-          <rect x="288" y="262" width="24" height="26" fill="var(--text)" fill-opacity=".15" stroke="var(--text)"/>
-          <rect x="100" y="120" width="76" height="130" rx="28" fill="var(--accent)" fill-opacity=".25" stroke="var(--accent)"/>
-          <rect x="424" y="120" width="76" height="130" rx="28" fill="var(--accent)" fill-opacity=".25" stroke="var(--accent)"/>
-          <path d="M168 128C180 96 232 92 262 121" stroke="var(--tube)" stroke-width="5"/>
-          <path d="M432 128C420 96 368 92 338 121" stroke="var(--tube)" stroke-width="5"/>
-          <path d="M300 292V338" stroke="var(--water)" stroke-width="3" color="var(--water)" marker-end="url(#ah)"/>
-          <path d="M560 250V90" stroke="var(--accent)" stroke-width="3" color="var(--accent)" marker-end="url(#ah)"/>
+          <rect x="262" y="8" width="76" height="80" rx="28" fill="var(--accent)" fill-opacity=".25" stroke="var(--accent)"/>
+          <rect x="288" y="88" width="24" height="12" fill="var(--accent)" fill-opacity=".4" stroke="var(--accent)"/>
+          <rect x="262" y="100" width="76" height="84" rx="28" fill="var(--accent)" fill-opacity=".25" stroke="var(--accent)"/>
+          <rect x="288" y="184" width="24" height="12" fill="var(--accent)" fill-opacity=".4" stroke="var(--accent)"/>
+          <rect x="245" y="196" width="110" height="140" rx="36" stroke="var(--text)"/>
+          <rect x="245" y="272" width="110" height="64" fill="var(--water)" fill-opacity=".35" clip-path="url(#mb)" stroke="none"/>
+          <rect x="288" y="336" width="24" height="22" fill="var(--text)" fill-opacity=".15" stroke="var(--text)"/>
+          <rect x="112" y="214" width="76" height="122" rx="28" fill="var(--accent)" fill-opacity=".25" stroke="var(--accent)"/>
+          <rect x="412" y="214" width="76" height="122" rx="28" fill="var(--accent)" fill-opacity=".25" stroke="var(--accent)"/>
+          <path d="M150 214C150 150 205 135 262 142" stroke="var(--tube)" stroke-width="5"/>
+          <path d="M450 214C450 150 395 135 338 142" stroke="var(--tube)" stroke-width="5"/>
+          <path d="M106 318H494" stroke="var(--muted)" stroke-width="3"/>
+          <path d="M300 362V410" stroke="var(--water)" stroke-width="3" color="var(--water)" marker-end="url(#ah)"/>
+          <path d="M560 330V100" stroke="var(--accent)" stroke-width="3" color="var(--accent)" marker-end="url(#ah)"/>
+          <g transform="translate(470 392)">
+            <path d="M60 0L-30 52L-30 -52Z" stroke="var(--muted)" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle r="18" stroke="var(--text)" fill="var(--water)" fill-opacity=".25"/>
+            <circle cx="36" cy="0" r="13" stroke="var(--accent)" fill="var(--accent)" fill-opacity=".25"/>
+            <circle cx="-18" cy="-31.2" r="13" stroke="var(--accent)" fill="var(--accent)" fill-opacity=".25"/>
+            <circle cx="-18" cy="31.2" r="13" stroke="var(--accent)" fill="var(--accent)" fill-opacity=".25"/>
+            <path d="M18 0H23M-9 -15.6L-11.5 -19.9M-9 15.6L-11.5 19.9" stroke="var(--tube)" stroke-width="3"/>
+          </g>
         </g>
         <g font-family="JetBrains Mono,monospace" font-size="12" fill="var(--text)" text-anchor="middle">
-          <text x="300" y="58">1 L air</text><text x="138" y="190">1 L air</text><text x="462" y="190">1 L air</text>
-          <text x="300" y="155">2 L main</text><text x="300" y="235">water</text>
-          <text x="560" y="75" fill="var(--accent)">rocket moves up</text>
-          
-          <text x="205" y="80" fill="var(--tube)">tubing</text>
+          <text x="300" y="52">1 L air</text><text x="300" y="146">1 L air</text>
+          <text x="150" y="280">1 L air</text><text x="450" y="280">1 L air</text>
+          <text x="300" y="240">2 L main</text><text x="300" y="312">water</text>
+          <text x="560" y="85" fill="var(--accent)">rocket moves up</text>
+          <text x="196" y="128" fill="var(--tube)">bent tubes</text>
+          <text x="150" y="356" fill="var(--muted)">wrap band</text>
+          <text x="470" y="464" fill="var(--muted)">top view: 3 side bottles at 120°</text>
         </g>
       </svg>
-      <figcaption><span class="tag">CONCEPTUAL · NOT MEASURED</span>Intended layout and flow, drawn from the finished rocket. Proportions are illustrative.</figcaption>
+      <figcaption><span class="tag">CONCEPTUAL · NOT MEASURED</span>Six-bottle layout: one 2 L main bottle and five 1 L air bottles, two stacked on top and three around the base (front view shows two; the inset shows all three). Proportions are illustrative.</figcaption>
     </figure>
     <div class="callout"><span class="mono">SAFETY</span><p>Wear eye protection, launch outdoors, keep everyone well back, and never pressurise the bottles beyond what they can safely hold.</p></div>
   </div></section>
