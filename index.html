@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Water Pressure Rocket</title>
-<meta name="description" content="A water rocket built from soft drink bottles: one 2-litre main thruster and three 1-litre air pressure bottles.">
+<meta name="description" content="A water rocket built from soft drink bottles: one 2-litre main thruster and five 1-litre air pressure bottles, six bottles in total.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@ h1{font-size:clamp(2.3rem,6vw,3.8rem);font-weight:700;letter-spacing:-.02em}
 .facts div{background:var(--panel);padding:.8rem 1rem}
 .facts dt{font:400 .68rem var(--mono);color:var(--muted)}
 .facts dd{margin:.15rem 0 0;font-weight:700;font-size:1.1rem}
-.hero img{width:100%;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--line)}
+.hero img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--line)}
 
 .callout{border:1px solid var(--line);border-left:3px solid var(--tube);background:var(--panel);padding:1.1rem 1.4rem;max-width:62ch;margin:1.5rem 0}
 .callout .mono{display:block;margin-bottom:.4rem}
@@ -106,9 +106,24 @@ footer p{margin:0}
 .topics li b{color:var(--text);font-weight:500}
 .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
 .videos video{width:100%;max-height:70vh;background:#000;border:1px solid var(--line)}
+.cad{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:1.5rem;align-items:start}
+.cad figure img,.cadviews img{width:100%;height:auto;background:#e9ebee;border:1px solid var(--line)}
+.cadviews{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.5rem}
+.cadviews img{aspect-ratio:1/1;object-fit:contain}
+.cadviews.three{grid-template-columns:repeat(3,1fr)}
+.cad figure img{max-height:620px;object-fit:contain}
+.cadh{font-size:1.35rem;margin:2.5rem 0 .8rem;display:flex;align-items:center;gap:.8rem;flex-wrap:wrap}
+.cad table td:first-child{color:var(--muted);white-space:nowrap}
+.devgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin-top:1.5rem}
+.devgrid button{all:unset;display:block;cursor:zoom-in;width:100%}
+.devgrid button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.devgrid img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--line)}
+.devgrid .cap{font-weight:500;font-size:.85rem;margin-top:.4rem;display:block}
 @media (max-width:820px){
+  .cad{grid-template-columns:1fr}
+  .cadviews.three{grid-template-columns:1fr 1fr}
   .hero{grid-template-columns:1fr;gap:2rem;padding:2.5rem 0}
-  .hero img{aspect-ratio:4/3;object-position:center 35%}
+  .hero img{aspect-ratio:3/4;max-height:80vh}
   .steps{grid-template-columns:1fr 1fr}
   .part{grid-template-columns:1fr;gap:.4rem}
   .status{grid-template-columns:1fr}
@@ -124,7 +139,7 @@ footer p{margin:0}
 <header>
   <div class="wrap">
     <a class="logo" href="#top"><b>WR</b><span>Water Pressure Rocket<small>Yash Sanjay Poharkar · Sanjivani University</small></span></a>
-    <nav aria-label="Sections"><a href="#problem">Problem</a><a href="#how">How it works</a><a href="#build">Build</a><a href="#gallery">Gallery</a><a href="#testing">Testing</a><a href="#status">Status</a></nav>
+    <nav aria-label="Sections"><a href="#problem">Problem</a><a href="#how">How it works</a><a href="#build">Build</a><a href="#cad">CAD</a><a href="#development">Development</a><a href="#gallery">Gallery</a><a href="#testing">Testing</a><a href="#status">Status</a></nav>
     <button id="theme" type="button" aria-label="Switch between dark and light theme">THEME</button>
   </div>
 </header>
@@ -134,15 +149,15 @@ footer p{margin:0}
     <div>
       <span class="mono">SEC 01 · OVERVIEW</span>
       <h1 style="margin-top:.8rem">A rocket built from soft drink bottles</h1>
-      <p>A water pressure rocket: one 2-litre bottle is the main thruster and three 1-litre bottles hold the air pressure. Water is pushed out of the bottom and the rocket goes up.</p>
+      <p>A water pressure rocket: one 2-litre bottle is the main thruster and five 1-litre bottles hold the air pressure, six bottles in total. Water is pushed out of the bottom and the rocket goes up.</p>
       <dl class="facts">
         <div><dt>MAIN THRUSTER</dt><dd>1 × 2 L bottle</dd></div>
-        <div><dt>AIR PRESSURE</dt><dd>3 × 1 L bottles</dd></div>
+        <div><dt>AIR PRESSURE</dt><dd>5 × 1 L bottles</dd></div>
         <div><dt>LAUNCH PAD</dt><dd>PVC legs, board top</dd></div>
         <div><dt>STATUS</dt><dd>Build complete</dd></div>
       </dl>
     </div>
-    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="rocket-front" alt="The water rocket on its launch pad: a clear main bottle, green pressure bottles and board fins" width="1204" height="1600">
+    <img src="dev-six-bottle-front.jpg" alt="The upgraded six-bottle water rocket standing on the workshop bench, with bent tubes running from the side bottles up to the stacked bottles" width="903" height="1200">
   </div>
 
   <section id="problem"><div class="wrap">
@@ -170,7 +185,7 @@ footer p{margin:0}
     <div class="sechead"><span class="sec">SEC<b>03</b></span><h2>How it works</h2></div>
     <ol class="steps">
       <li><h3>Fill</h3><p>Water goes into the main 2-litre bottle.</p></li>
-      <li><h3>Pressurise</h3><p>Air is pumped in and stored in the three 1-litre bottles.</p></li>
+      <li><h3>Pressurise</h3><p>Air is pumped in and stored in the five 1-litre bottles.</p></li>
       <li><h3>Release</h3><p>The nozzle on the launch pad is released and the pressure pushes the water out.</p></li>
       <li><h3>Lift off</h3><p>Water goes down fast, and the rocket goes up. Every action has an equal and opposite reaction.</p></li>
     </ol>
@@ -209,7 +224,10 @@ footer p{margin:0}
     <div class="sechead"><span class="sec">SEC<b>04</b></span><h2>What it’s made of</h2></div>
     <div class="parts">
       <div class="part"><h3>Main bottle</h3><p>2-litre bottle, the thruster. Holds the water and points down at the nozzle.</p><span class="badge">BUILT</span></div>
-      <div class="part"><h3>Pressure bottles</h3><p>Three 1-litre bottles that store the compressed air.</p><span class="badge">BUILT</span></div>
+      <div class="part"><h3>Pressure bottles</h3><p>Five 1-litre bottles that store the compressed air: three spaced evenly around the main bottle and two stacked on top. Upgraded from three.</p><span class="badge">UPGRADED</span></div>
+      <div class="part"><h3>Couplings</h3><p>Join the two stacked 1-litre bottles to each other and to the main bottle.</p><span class="badge">UPGRADED</span></div>
+      <div class="part"><h3>Bent external tubes</h3><p>Three bent tubes running from each side bottle up to the stacked bottles.</p><span class="badge">UPGRADED</span></div>
+      <div class="part"><h3>Wrap bands</h3><p>Two triangular bands that hold the three side bottles tight against the main bottle.</p><span class="badge">UPGRADED</span></div>
       <div class="part"><h3>Orange tubing</h3><p>Joins the pressure bottles to the central nozzle.</p><span class="badge">BUILT</span></div>
       <div class="part"><h3>Nozzle and brackets</h3><p>A pipe nozzle held in place by two metal angle brackets fixed to the board.</p><span class="badge">BUILT</span></div>
       <div class="part"><h3>Launch pad</h3><p>A board platform on four PVC pipe legs.</p><span class="badge">BUILT</span></div>
@@ -217,8 +235,71 @@ footer p{margin:0}
     </div>
   </div></section>
 
+  <section id="cad"><div class="wrap">
+    <div class="sechead"><span class="sec">SEC<b>05</b></span><h2>CAD models</h2></div>
+    <p>The rocket and its launch pad were modelled in SOLIDWORKS before and alongside the build, to check sizes, spacing and how the parts fit together.</p>
+
+    <h3 class="cadh">Upgraded rocket: six bottles <span class="badge" style="color:var(--tube);border-color:var(--tube)">NEW</span></h3>
+    <p>The first rocket used four bottles. The upgraded version adds two more, for six in total: the 2-litre main bottle in the centre, three 1-litre bottles spaced evenly around it, and two 1-litre bottles stacked on top through couplings. Bent external tubes run from each side bottle up to the stacked bottles, and two triangular wrap bands hold the three side bottles tight against the main bottle.</p>
+    <div class="cad">
+      <figure><img src="cad-rocket-6-bottle-3d.jpg" alt="Isometric SOLIDWORKS view of the six-bottle rocket: a 2 litre main bottle with two 1 litre bottles stacked on top and three 1 litre bottles around it, joined by bent tubes and wrap bands" width="350" height="871" loading="lazy"><figcaption><span class="tag">SOLIDWORKS</span>Six-bottle assembly, isometric view.</figcaption></figure>
+      <div class="scroll"><table>
+        <thead><tr><th>ITEM</th><th>IN THE MODEL</th></tr></thead>
+        <tbody>
+          <tr><td>Bottles</td><td>6 in total: 1 × 2 L main + 5 × 1 L (was 4: 1 × 2 L + 3 × 1 L)</td></tr>
+          <tr><td>Overall</td><td>About 812 mm tall, 236 × 271 mm across</td></tr>
+          <tr><td>Main bottle</td><td>2 L, Ø105 mm, 321 mm tall</td></tr>
+          <tr><td>1 L bottles</td><td>Ø78.5 mm, 246 mm tall each</td></tr>
+          <tr><td>Side bottles</td><td>3, spaced 120° apart, about 95 mm from the centre line</td></tr>
+          <tr><td>Stack</td><td>2 × 1 L on top of the main bottle, joined by Ø36 mm couplings</td></tr>
+          <tr><td>Tubing</td><td>3 bent external tubes, Ø6 mm</td></tr>
+          <tr><td>Bracing</td><td>2 triangular wrap bands around the base bottles</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="cadviews three">
+      <figure><img src="cad-rocket-6-bottle-front.jpg" alt="Front view of the six-bottle rocket model" width="347" height="1002" loading="lazy"><figcaption>Front: the stack and the bent tubes.</figcaption></figure>
+      <figure><img src="cad-rocket-6-bottle-top.jpg" alt="Top view of the six-bottle rocket model showing the three side bottles around the centre" width="842" height="915" loading="lazy"><figcaption>Top: three side bottles at 120°.</figcaption></figure>
+      <figure><img src="cad-rocket-6-bottle-bottom.jpg" alt="Bottom view of the six-bottle rocket model showing the bottle caps and the triangular wrap band" width="842" height="915" loading="lazy"><figcaption>Bottom: caps and the wrap band.</figcaption></figure>
+    </div>
+
+    <h3 class="cadh">Launch pad</h3>
+    <p>The launch pad is a single multi-body part: the board deck, four PVC pipe legs, two steel angle brackets and the hollow centre pipe that the rocket nozzle sits on. It is driven by named dimensions such as deck size, pipe diameters and leg spacing, and mirror features keep both brackets and all four legs symmetric, so changing one value updates the whole pad.</p>
+    <div class="cad">
+      <figure><img src="cad-launch-pad-3d.jpg" alt="3D SOLIDWORKS render of the launch pad: brown board deck on four grey PVC legs with two metal angle brackets around a centre pipe" width="872" height="914" loading="lazy"><figcaption><span class="tag">SOLIDWORKS</span>Trimetric view of the launch pad model.</figcaption></figure>
+      <div class="scroll"><table>
+        <thead><tr><th>PART</th><th>SIZE IN THE MODEL</th></tr></thead>
+        <tbody>
+          <tr><td>Overall</td><td>220 × 200 mm footprint, 243 mm tall</td></tr>
+          <tr><td>Deck</td><td>220 × 200 mm board, 6 mm thick</td></tr>
+          <tr><td>Legs</td><td>4 × PVC pipe, Ø25 mm OD / Ø21 mm ID, 185 mm long, on a 180 × 160 mm grid</td></tr>
+          <tr><td>Brackets</td><td>2 × steel angle, 50 × 52 mm, 2 mm thick, 16 mm wide, 4 × Ø6.4 mm holes each</td></tr>
+          <tr><td>Centre pipe</td><td>Ø23 mm OD, 2 mm wall, 129 mm long (81 mm below the deck)</td></tr>
+          <tr><td>Fittings</td><td>Ø36 mm collar under the deck, Ø25 mm band, Ø6.4 mm lower tip</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="cadviews">
+      <figure><img src="cad-launch-pad-front.jpg" alt="Front view of the launch pad model showing the legs, deck, brackets and centre pipe" width="952" height="1039" loading="lazy"><figcaption>Front view: centre pipe passes through the deck between the brackets.</figcaption></figure>
+      <figure><img src="cad-launch-pad-top.jpg" alt="Top view of the launch pad model showing the deck, two brackets and the centre pipe" width="1132" height="1039" loading="lazy"><figcaption>Top view: bracket and pipe layout on the deck.</figcaption></figure>
+    </div>
+  </div></section>
+
+  <section id="development"><div class="wrap">
+    <div class="sechead"><span class="sec">SEC<b>06</b></span><h2>Development stage</h2></div>
+    <span class="badge" style="color:var(--water);border-color:var(--water)">IN PROGRESS</span>
+    <p style="margin-top:1rem">The six-bottle upgrade being put together in the workshop, following the CAD model above. The stacked bottles sit on top of the main bottle, bent tubes run from the three side bottles up to the stack, and a triangular frame with a wire band holds the side bottles around the main bottle. Click a photo to enlarge it.</p>
+    <div class="devgrid" id="devgrid">
+      <figure><button type="button"><img src="dev-six-bottle-front.jpg" alt="Six-bottle prototype standing on the workshop bench, front view, with brown tubes running from the side bottles up to the stacked bottles" width="903" height="1200" loading="lazy"><span class="cap">The six-bottle prototype on the workbench</span></button></figure>
+      <figure><button type="button"><img src="dev-six-bottle-side.jpg" alt="Six-bottle prototype from the side, showing the stacked bottles, the bent tubes and the wire band around the side bottles" width="903" height="1200" loading="lazy"><span class="cap">Side view: stacked bottles and bent tubes</span></button></figure>
+      <figure><button type="button"><img src="dev-six-bottle-angle.jpg" alt="Six-bottle prototype from another angle with the clear side bottle in front" width="903" height="1200" loading="lazy"><span class="cap">Another angle, clear side bottle in front</span></button></figure>
+      <figure><button type="button"><img src="dev-six-bottle-base.jpg" alt="Looking at the base of the prototype: the caps of the three side bottles and the main bottle held inside a triangular frame" width="800" height="800" loading="lazy"><span class="cap">Base: three side bottles in the triangular frame</span></button></figure>
+      <figure><button type="button"><img src="dev-six-bottle-top.jpg" alt="Top-down view of the prototype showing the stacked bottle over the triangular frame and side bottles" width="620" height="560" loading="lazy"><span class="cap">Top-down view of the layout</span></button></figure>
+    </div>
+  </div></section>
+
   <section id="gallery"><div class="wrap">
-    <div class="sechead"><span class="sec">SEC<b>05</b></span><h2>Gallery</h2></div>
+    <div class="sechead"><span class="sec">SEC<b>07</b></span><h2>Gallery</h2></div>
     <p>Real photographs of the rocket. Click a photo to enlarge it.</p>
     <div class="tabs" id="tabs">
       <button type="button" data-f="all" aria-pressed="true">All</button>
@@ -238,7 +319,7 @@ footer p{margin:0}
   </div></section>
 
   <section id="testing"><div class="wrap">
-    <div class="sechead"><span class="sec">SEC<b>06</b></span><h2>Testing and results</h2></div>
+    <div class="sechead"><span class="sec">SEC<b>08</b></span><h2>Testing and results</h2></div>
     <p>Results from our recorded test launches.</p>
     <div class="scroll"><table>
       <thead><tr><th>LAUNCH</th><th>WATER IN MAIN BOTTLE</th><th>AIR PRESSURE</th><th>HEIGHT / DISTANCE</th></tr></thead>
@@ -252,7 +333,7 @@ footer p{margin:0}
   </div></section>
 
   <section id="status"><div class="wrap">
-    <div class="sechead"><span class="sec">SEC<b>07</b></span><h2>Build status</h2></div>
+    <div class="sechead"><span class="sec">SEC<b>09</b></span><h2>Build status</h2></div>
     <span class="badge">BUILD COMPLETE</span>
     <div class="status">
       <div><span class="badge">COMPLETED</span><h3>The rocket and launch pad</h3><ul><li>Main bottle, three pressure bottles and tubing assembled</li><li>Nozzle fixed to the board with metal brackets</li><li>Fins fitted, launch pad built on PVC legs</li></ul></div>
@@ -276,6 +357,10 @@ document.getElementById('tabs').addEventListener('click',e=>{
 });
 const lb=document.getElementById('lb');
 figs.forEach(f=>f.querySelector('button').onclick=()=>{
+  const i=f.querySelector('img');lb.querySelector('img').src=i.src;lb.querySelector('img').alt=i.alt;
+  document.getElementById('lbc').textContent=f.querySelector('.cap').textContent;lb.showModal();
+});
+document.querySelectorAll('#devgrid figure').forEach(f=>f.querySelector('button').onclick=()=>{
   const i=f.querySelector('img');lb.querySelector('img').src=i.src;lb.querySelector('img').alt=i.alt;
   document.getElementById('lbc').textContent=f.querySelector('.cap').textContent;lb.showModal();
 });
