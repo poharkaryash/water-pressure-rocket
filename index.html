@@ -119,40 +119,57 @@ footer p{margin:0}
 .devgrid button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .devgrid img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;border:1px solid var(--line)}
 .devgrid .cap{font-weight:500;font-size:.85rem;margin-top:.4rem;display:block}
-.explorer{position:relative;background:var(--panel);border:1px solid var(--line)}
-.explorer-stage{height:min(70vh,560px);position:relative;touch-action:none;cursor:grab}
-.explorer-stage canvas{display:block;width:100%;height:100%}
+.explorer{position:relative;background:var(--panel);border:1px solid var(--line);overflow:hidden}
+.explorer-stage{height:min(72vh,580px);position:relative;touch-action:none;cursor:grab;background:radial-gradient(ellipse 60% 55% at 50% 42%,color-mix(in srgb,var(--tube) 14%,var(--panel)) 0%,var(--panel) 72%)}
+.explorer-stage canvas{display:block;width:100%;height:100%;opacity:0;transition:opacity .8s ease}
+.explorer.ready .explorer-stage canvas{opacity:1}
+.explorer-badge{position:absolute;left:1rem;top:1rem;font:600 .65rem var(--mono);color:var(--tube);border:1px solid var(--tube);padding:.15rem .5rem;background:color-mix(in srgb,var(--panel) 80%,transparent);pointer-events:none}
+.explorer-hint{position:absolute;right:1rem;bottom:.8rem;font:400 .7rem var(--mono);color:var(--muted);pointer-events:none}
+.explorer-tip{position:absolute;z-index:2;pointer-events:none;background:var(--text);color:var(--bg);font:600 .75rem var(--head);padding:.25rem .55rem;white-space:nowrap}
 .explorer-fallback{display:none;padding:1rem}
 .explorer.no-webgl .explorer-stage{display:none}
 .explorer.no-webgl .explorer-fallback{display:block}
 .explorer-loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font:400 .8rem var(--mono);pointer-events:none}
 .explorer.ready .explorer-loading{display:none}
 .explorer-bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;padding:.8rem 1rem;border-top:1px solid var(--line)}
+.explorer-chips{display:flex;flex-wrap:wrap;gap:.4rem;padding:0 1rem .9rem}
+.explorer-chips button{display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:.25rem .7rem;font:500 .78rem var(--head);cursor:pointer}
+.explorer-chips button i{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}
+.explorer-chips button[aria-pressed=true]{border-color:var(--tube);background:color-mix(in srgb,var(--tube) 15%,transparent)}
 .explorer-bar button,.sim-buttons button{background:var(--panel);color:var(--text);border:1px solid var(--line);padding:.4rem .9rem;font:600 .8rem var(--head);cursor:pointer}
 .explorer-bar button[aria-pressed=true],.sim-buttons button[aria-pressed=true]{background:var(--text);color:var(--bg)}
 #explorer-info{flex:1 1 260px;font-size:.9rem;color:var(--muted);min-height:2.6em}
 #explorer-info b{display:block;color:var(--text)}
-.sim{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:1.25rem;margin-top:1rem}
+.sim{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:1.25rem;margin-top:1rem}
 .sim-panel{background:var(--panel);border:1px solid var(--line);padding:1.1rem 1.2rem}
 .sim-buttons{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+.sim-visuals{display:grid;grid-template-columns:1fr 1.4fr;gap:.8rem;margin-bottom:1rem;border:1px solid var(--line);padding:.6rem;background:color-mix(in srgb,var(--bg) 50%,var(--panel))}
+#sim-bottle,#sim-gauge{width:100%;height:150px;display:block}
 .sim-field{margin-bottom:.9rem}
-.sim-field label{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:.25rem}
+.sim-field label{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:.35rem}
 .sim-field output{font:600 .8rem var(--mono);color:var(--tube)}
-.sim-field input{width:100%;accent-color:var(--tube)}
+.sim-field input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--water),var(--tube));outline:none}
+.sim-field input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--text);border:3px solid var(--tube);cursor:pointer}
+.sim-field input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--text);border:3px solid var(--tube);cursor:pointer}
 .sim details summary{cursor:pointer;font:600 .8rem var(--mono);color:var(--muted);margin:.4rem 0 .8rem}
-.sim-results{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:0 0 .8rem}
-.sim-results div{background:var(--panel);padding:.6rem .8rem}
+#sim-launch{background:var(--tube);color:#fff;border-color:var(--tube);font-size:.95rem;padding:.6rem 1.4rem;letter-spacing:.04em;box-shadow:0 0 0 0 color-mix(in srgb,var(--tube) 60%,transparent);animation:pulse 2.2s infinite}
+#sim-launch:disabled{opacity:.6;animation:none;cursor:wait}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--tube) 55%,transparent)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.sim-results{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:1.25rem 0 0}
+.sim-results div{background:var(--panel);padding:.8rem 1rem}
 .sim-results dt{font:400 .65rem var(--mono);color:var(--muted)}
-.sim-results dd{margin:.1rem 0 0;font-weight:700}
-.sim-results .big dd{font-size:1.5rem;color:var(--tube)}
-.sim-visual{display:grid;grid-template-columns:110px 1fr;gap:.8rem}
-#sim-flight{width:100%;height:280px;border:1px solid var(--line)}
-#sim-chart{width:100%;height:280px;border:1px solid var(--line)}
+.sim-results dd{margin:.15rem 0 0;font-weight:700;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.sim-results .big{background:linear-gradient(135deg,color-mix(in srgb,var(--tube) 18%,var(--panel)),var(--panel))}
+.sim-results .big dd{font-size:1.9rem;color:var(--tube);line-height:1.1}
+#sim-flight{width:100%;height:360px;display:block;border:1px solid var(--line)}
+#sim-chart{width:100%;height:210px;display:block;border:1px solid var(--line);margin-top:.8rem}
 .sim-legend{font:400 .72rem var(--mono);color:var(--muted);margin:.5rem 0 0}
 .sim-legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin:0 .3rem 0 .6rem}
 #sim-compare{font-size:.9rem;margin:.6rem 0 0}
 @media (max-width:820px){
   .sim{grid-template-columns:1fr}
+  .sim-results{grid-template-columns:repeat(2,1fr)}
+  #sim-flight{height:300px}
   .cad{grid-template-columns:1fr}
   .cadviews.three{grid-template-columns:1fr 1fr}
   .hero{grid-template-columns:1fr;gap:2rem;padding:2.5rem 0}
@@ -338,56 +355,73 @@ footer p{margin:0}
     <p>Two interactive tools for the six-bottle upgrade: a 3D explorer built from the SOLIDWORKS model, and a launch simulator that estimates how high the rocket could fly.</p>
 
     <h3 class="cadh">3D rocket explorer</h3>
-    <p>Drag to orbit, scroll or pinch to zoom, and click or tap a part to see what it is. Switch to <em>Exploded</em> to pull the parts apart. The geometry comes straight from the SOLIDWORKS assembly; colours are illustrative.</p>
+    <p>Drag to orbit, scroll or pinch to zoom, and click a part to see what it is. Switch to <em>Exploded</em> to pull the parts apart. The geometry comes straight from the SOLIDWORKS assembly; colours are illustrative.</p>
     <div class="explorer" id="explorer">
-      <div class="explorer-stage" aria-label="Interactive 3D model of the six-bottle water rocket"><div class="explorer-loading">Loading 3D model…</div></div>
+      <div class="explorer-stage" aria-label="Interactive 3D model of the six-bottle water rocket">
+        <div class="explorer-loading">Loading 3D model…</div>
+        <span class="explorer-badge">SOLIDWORKS MODEL · 24 PARTS</span>
+        <span class="explorer-hint">drag · zoom · click</span>
+        <div class="explorer-tip" hidden></div>
+      </div>
       <div class="explorer-fallback"><img src="cad-rocket-6-bottle-3d.jpg" alt="SOLIDWORKS render of the six-bottle rocket with fins" width="508" height="950" loading="lazy" style="max-height:520px;width:auto;margin:auto"><p class="mono" style="text-align:center">3D view needs WebGL; showing the static render instead.</p></div>
       <div class="explorer-bar">
         <button type="button" data-explode="0" aria-pressed="true">Assembled</button>
         <button type="button" data-explode="1" aria-pressed="false">Exploded</button>
+        <button type="button" id="explorer-auto" aria-pressed="true">Auto-rotate</button>
         <button type="button" id="explorer-reset">Reset view</button>
-        <div id="explorer-info" aria-live="polite"><span>Tap or click a part to see what it is.</span></div>
+        <div id="explorer-info" aria-live="polite"><span>Tap or click a part, or a chip below, to see what it is.</span></div>
+      </div>
+      <div class="explorer-chips" role="group" aria-label="Highlight parts">
+        <button type="button" data-group="main" aria-pressed="false"><i style="background:#9fd8f0"></i>Main bottle</button>
+        <button type="button" data-group="air" aria-pressed="false"><i style="background:#2fbf68"></i>Air bottles</button>
+        <button type="button" data-group="fins" aria-pressed="false"><i style="background:#ff7a2f"></i>Fins</button>
+        <button type="button" data-group="tubes" aria-pressed="false"><i style="background:#9a6a3a"></i>Air tubes</button>
+        <button type="button" data-group="bands" aria-pressed="false"><i style="background:#c0783c"></i>Wrap bands</button>
+        <button type="button" data-group="joints" aria-pressed="false"><i style="background:#f2c230"></i>Caps &amp; couplings</button>
       </div>
     </div>
 
     <h3 class="cadh">Launch simulator</h3>
     <div class="callout" style="max-width:none"><span class="mono">SIMULATOR · PHYSICS ESTIMATE, NOT MEASURED</span>
       <p>Moving the sliders runs a step-by-step physics model in your browser. It assumes water only in the 2 L main bottle, all bottles sharing one air volume freely, a bottle-neck nozzle, a straight-up launch and no launch-tube boost. Dry masses are SOLIDWORKS estimates and the drag coefficient is a guess, so treat the numbers as a comparison tool, not a promise.</p></div>
-    <div class="sim" id="launch-sim">
-      <div class="sim-panel">
-        <div class="sim-buttons" role="group" aria-label="Rocket version">
-          <button type="button" data-config="six" aria-pressed="true">Six-bottle (upgrade)</button>
-          <button type="button" data-config="four" aria-pressed="false">Original four-bottle</button>
+    <div id="launch-sim">
+      <div class="sim">
+        <div class="sim-panel">
+          <div class="sim-buttons" role="group" aria-label="Rocket version">
+            <button type="button" data-config="six" aria-pressed="true">Six-bottle (upgrade)</button>
+            <button type="button" data-config="four" aria-pressed="false">Original four-bottle</button>
+          </div>
+          <div class="sim-visuals">
+            <canvas id="sim-bottle" aria-label="Water level in the 2 litre main bottle"></canvas>
+            <canvas id="sim-gauge" aria-label="Launch pressure gauge"></canvas>
+          </div>
+          <div class="sim-field"><label for="sim-water">Water in main bottle <output id="sim-water-val"></output></label><input id="sim-water" type="range" min="0.2" max="1.95" step="0.05" value="1.8"></div>
+          <div class="sim-field"><label for="sim-psi">Launch pressure <output id="sim-psi-val"></output></label><input id="sim-psi" type="range" min="20" max="80" step="5" value="60"></div>
+          <details>
+            <summary>Advanced settings</summary>
+            <div class="sim-field"><label for="sim-dry">Dry mass (empty rocket) <output id="sim-dry-val"></output></label><input id="sim-dry" type="range" min="150" max="800" step="5" value="405"></div>
+            <div class="sim-field"><label for="sim-nozzle">Nozzle diameter <output id="sim-nozzle-val"></output></label><input id="sim-nozzle" type="range" min="9" max="22" step="0.1" value="21.7"></div>
+            <div class="sim-field"><label for="sim-cd">Drag coefficient <output id="sim-cd-val"></output></label><input id="sim-cd" type="range" min="0.3" max="1.2" step="0.05" value="0.6"></div>
+          </details>
+          <div class="sim-buttons" style="margin:0"><button type="button" id="sim-launch">▲ LAUNCH</button><button type="button" id="sim-reset">Reset</button></div>
         </div>
-        <div class="sim-field"><label for="sim-water">Water in main bottle <output id="sim-water-val"></output></label><input id="sim-water" type="range" min="0.2" max="1.95" step="0.05" value="1.8"></div>
-        <div class="sim-field"><label for="sim-psi">Launch pressure <output id="sim-psi-val"></output></label><input id="sim-psi" type="range" min="20" max="80" step="5" value="60"></div>
-        <details>
-          <summary>Advanced settings</summary>
-          <div class="sim-field"><label for="sim-dry">Dry mass (empty rocket) <output id="sim-dry-val"></output></label><input id="sim-dry" type="range" min="150" max="800" step="5" value="405"></div>
-          <div class="sim-field"><label for="sim-nozzle">Nozzle diameter <output id="sim-nozzle-val"></output></label><input id="sim-nozzle" type="range" min="9" max="22" step="0.1" value="21.7"></div>
-          <div class="sim-field"><label for="sim-cd">Drag coefficient <output id="sim-cd-val"></output></label><input id="sim-cd" type="range" min="0.3" max="1.2" step="0.05" value="0.6"></div>
-        </details>
-        <div class="sim-buttons"><button type="button" id="sim-launch">▲ Launch</button><button type="button" id="sim-reset">Reset</button></div>
-        <dl class="sim-results">
-          <div class="big"><dt>PEAK HEIGHT</dt><dd id="sim-apogee"></dd></div>
-          <div class="big"><dt>PEAK HEIGHT (FT)</dt><dd id="sim-apogee-ft"></dd></div>
-          <div><dt>TOP SPEED</dt><dd id="sim-speed"></dd></div>
-          <div><dt>PEAK THRUST</dt><dd id="sim-thrust"></dd></div>
-          <div><dt>THRUST TIME</dt><dd id="sim-burn"></dd></div>
-          <div><dt>TIME TO PEAK</dt><dd id="sim-tapogee"></dd></div>
-          <div><dt>LAUNCH MASS</dt><dd id="sim-mass"></dd></div>
-          <div><dt>RECORDED TEST</dt><dd>200 ft · 1.8 L · 60 psi</dd></div>
-        </dl>
-        <p class="mono" style="margin:0">Recorded test: original four-bottle rocket, height or distance as logged in Testing and results.</p>
-      </div>
-      <div class="sim-panel">
-        <div class="sim-visual">
-          <canvas id="sim-flight" aria-label="Animated rocket height"></canvas>
+        <div class="sim-panel">
+          <canvas id="sim-flight" aria-label="Animated launch: rocket height over the launch pad"></canvas>
           <canvas id="sim-chart" aria-label="Height against time for this rocket and the other version"></canvas>
+          <p class="sim-legend"><i style="background:var(--tube)"></i>this version <i style="background:var(--muted)"></i>other version (dashed) <i style="background:var(--water);opacity:.45;height:10px"></i>water thrust <i style="background:var(--water);opacity:.2;height:10px"></i>air pulse</p>
+          <p id="sim-compare"></p>
         </div>
-        <p class="sim-legend"><i style="background:var(--tube)"></i>this version <i style="background:var(--muted)"></i>other version (dashed) <i style="background:var(--water);opacity:.4;height:10px"></i>thrust</p>
-        <p id="sim-compare"></p>
       </div>
+      <dl class="sim-results">
+        <div class="big"><dt>PEAK HEIGHT</dt><dd id="sim-apogee"></dd></div>
+        <div class="big"><dt>PEAK HEIGHT</dt><dd id="sim-apogee-ft"></dd></div>
+        <div><dt>TOP SPEED</dt><dd id="sim-speed"></dd></div>
+        <div><dt>PEAK THRUST</dt><dd id="sim-thrust"></dd></div>
+        <div><dt>THRUST TIME</dt><dd id="sim-burn"></dd></div>
+        <div><dt>TIME TO PEAK</dt><dd id="sim-tapogee"></dd></div>
+        <div><dt>LAUNCH MASS</dt><dd id="sim-mass"></dd></div>
+        <div><dt>RECORDED TEST (ORIGINAL)</dt><dd>200 ft · 1.8 L · 60 psi</dd></div>
+      </dl>
     </div>
   </div></section>
 
