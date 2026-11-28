@@ -436,6 +436,12 @@ footer p{margin:0}
       <figure><button type="button"><img src="dev-six-bottle-base.jpg" alt="Looking at the base of the prototype: the caps of the three side bottles and the main bottle held inside a triangular frame" width="800" height="800" loading="lazy"><span class="cap">Base: three side bottles in the triangular frame</span></button></figure>
       <figure><button type="button"><img src="dev-six-bottle-top.jpg" alt="Top-down view of the prototype showing the stacked bottle over the triangular frame and side bottles" width="620" height="560" loading="lazy"><span class="cap">Top-down view of the layout</span></button></figure>
     </div>
+    <h3 class="cadh">Laser-cutting the fins</h3>
+    <p>The six fins were cut on the lab's laser cutter from 3 mm board, using the fin profiles from our DXF file: three large fins (145 × 80 mm) for the base bottles and three small fins (100 × 60 mm) for the top bottle.</p>
+    <div class="devgrid" id="lasergrid" style="max-width:520px">
+      <figure><button type="button"><img src="dev-fins-laser-cut-1.jpg" alt="Two team members lifting freshly laser-cut triangular fins out of a board sheet on the laser cutter bed" width="900" height="1200" loading="lazy"><span class="cap">Lifting the cut fins out of the sheet</span></button></figure>
+      <figure><button type="button"><img src="dev-fins-laser-cut-2.jpg" alt="A team member holding a laser-cut triangular fin next to the board sheet with rows of triangular cut-outs" width="900" height="1200" loading="lazy"><span class="cap">A finished fin next to the cut sheet</span></button></figure>
+    </div>
   </div></section>
 
   <section id="gallery"><div class="wrap">
@@ -512,7 +518,7 @@ figs.forEach(f=>f.querySelector('button').onclick=()=>{
   const i=f.querySelector('img');lb.querySelector('img').src=i.src;lb.querySelector('img').alt=i.alt;
   document.getElementById('lbc').textContent=f.querySelector('.cap').textContent;lb.showModal();
 });
-document.querySelectorAll('#devgrid figure').forEach(f=>f.querySelector('button').onclick=()=>{
+document.querySelectorAll('#devgrid figure, #lasergrid figure').forEach(f=>f.querySelector('button').onclick=()=>{
   const i=f.querySelector('img');lb.querySelector('img').src=i.src;lb.querySelector('img').alt=i.alt;
   document.getElementById('lbc').textContent=f.querySelector('.cap').textContent;lb.showModal();
 });
